@@ -1,0 +1,44 @@
+{
+  "schema": "edgeagentbench-consolidated-gpt6-v1",
+  "experiment": {
+    "runtime": "OpenClaw 2026.10.5",
+    "tool_mode": "direct incident tools; Code Mode off for both candidates",
+    "candidate_models": {
+      "bench-cloud": "openai/gpt-5.6-sol",
+      "bench-qwen": "llamacpp/qwen3.5:9b"
+    }
+  },
+  "judge_model": "gpt-6-sol",
+  "rubric": "semantic-root-v1",
+  "validator": "judge-validator-v1.1",
+  "trials_per_agent_per_incident": 4,
+  "answer_key": "evaluation/answer-key.json",
+  "incident_groups": {
+    "INC-001": {
+      "sources_dir": "results/private/oc2026.10.5-judge-sources-inc001",
+      "deterministic_runs_csv": "results/evaluation/oc2026.10.5-final-kGqV91F3/runs.csv",
+      "judge_dir": "results/private/judge-inc001-semantic-v1"
+    },
+    "INC-002": {
+      "sources_dir": "results/private/oc2026.10.5-judge-sources-inc002",
+      "deterministic_runs_csv": "results/evaluation/oc2026.10.5-final-kGqV91F3/runs.csv",
+      "judge_dir": "results/private/judge-inc002-semantic-v1"
+    },
+    "INC-003": {
+      "sources_dir": "results/private/inc003-scored-20261021T080504",
+      "deterministic_runs_csv": "results/private/inc003-scored-20261021T080504/evaluation.csv/runs.csv",
+      "judge_dir": "results/private/judge-inc003-semantic-v1"
+    },
+    "INC-004": {
+      "sources_dir": "results/private/inc004-scored-20261022T064734",
+      "deterministic_runs_csv": "results/private/inc004-scored-20261022T064734/evaluation/runs.csv",
+      "judge_dir": "results/private/judge-inc004-semantic-v1"
+    },
+    "INC-005": {
+      "sources_dir": "results/private/inc005-scored-QzYjemiU",
+      "deterministic_runs_csv": "results/private/inc005-scored-QzYjemiU/evaluation/runs.csv",
+      "judge_dir": "results/private/inc005-scored-QzYjemiU/judge-semantic-v1"
+    }
+  },
+  "candidate_audit_file": "results/private/frozen-candidate-audit-five-incidents-v1.json"
+}

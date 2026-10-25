@@ -1,0 +1,13 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.env
+.env.*
+*.log
+results/private/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+# Generated evaluation results
+results/evaluation/*

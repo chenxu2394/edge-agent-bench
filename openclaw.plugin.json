@@ -1,0 +1,25 @@
+{
+  "id": "edge-agent-bench",
+  "name": "EdgeAgentBench",
+  "description": "Read-only tools for deterministic IT incident evaluation.",
+  "version": "0.1.0",
+  "configSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": false
+  },
+  "activation": {
+    "onStartup": true
+  },
+  "contracts": {
+    "tools": ["get_incident_metrics", "get_incident_logs"]
+  },
+  "toolMetadata": {
+    "get_incident_metrics": {
+      "optional": true
+    },
+    "get_incident_logs": {
+      "optional": true
+    }
+  }
+}

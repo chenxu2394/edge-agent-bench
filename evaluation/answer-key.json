@@ -1,0 +1,148 @@
+{
+  "INC-001": {
+    "rootCauseCode": "DISK_EXHAUSTION",
+    "rootCauseDescription": "Disk exhaustion prevented the telemetry publisher from persisting outgoing messages.",
+    "requiredEvidenceIds": [
+      "M-001",
+      "L-002"
+    ],
+    "additionalSupportingEvidenceIds": [
+      "M-004",
+      "M-005",
+      "L-003"
+    ],
+    "alternativeCausesNotSupported": [
+      "GPU_OVERLOAD",
+      "CPU_OVERLOAD",
+      "BROKER_CONNECTION_FAILURE"
+    ]
+  },
+  "INC-002": {
+    "rootCauseCode": "EXPIRED_MQTT_CLIENT_CERTIFICATE",
+    "rootCauseDescription": "The publisher's expired mTLS client certificate prevented an authenticated MQTT session from being established, suspending publication.",
+    "requiredEvidenceIds": [
+      "L-013",
+      "M-013"
+    ],
+    "additionalSupportingEvidenceIds": [
+      "L-015",
+      "L-014",
+      "M-012",
+      "M-015"
+    ],
+    "alternativeCausesNotSupported": [
+      "DISK_EXHAUSTION",
+      "CPU_OVERLOAD",
+      "GPU_OVERLOAD",
+      "BROKER_OUTAGE"
+    ],
+    "diagnosisPatterns": [
+      "(?:expired|expiry|expiration).{0,90}(?:client|mqtt|mtls).{0,45}certificat",
+      "(?:client|mqtt|mtls).{0,45}certificat.{0,90}(?:expired|expiry|expiration)",
+      "(?:certificate|cert).{0,30}(?:expir(?:ed|y|ation)).{0,90}(?:mqtt|tls|mtls|publisher|authenticat)"
+    ]
+  },
+  "INC-003": {
+    "rootCauseCode": "MQTT_TOPIC_NAMESPACE_MISMATCH",
+    "rootCauseDescription": "Publisher rollout changed the MQTT telemetry topic namespace to v2, but the consumer remained subscribed to v1/#, so broker-accepted messages did not match the consumer subscription.",
+    "requiredEvidenceIds": [
+      "L-022",
+      "L-024",
+      "M-025"
+    ],
+    "additionalSupportingEvidenceIds": [
+      "L-023",
+      "M-023",
+      "M-024",
+      "L-027",
+      "M-022",
+      "M-027",
+      "M-026"
+    ],
+    "alternativeCausesNotSupported": [
+      "DISK_EXHAUSTION",
+      "BROKER_OUTAGE",
+      "MQTT_AUTHENTICATION_FAILURE"
+    ],
+    "diagnosisPatterns": [
+      "\\b(?:root\\s+cause|diagnosis|due\\s+to|caused\\s+by)\\s*[:\\-]?\\s*(?:an?\\s+)?(?:mqtt\\s+)?(?:topic(?:\\s+namespace)?|subscription(?:\\s+filter)?)\\s+(?:mismatch|misalignment|drift)\\b",
+      "\\b(?:topic(?:\\s+namespace)?|subscription(?:\\s+filter)?)\\s+(?:mismatch|misalignment|drift)\\b[^\\n.]{0,100}\\b(?:caused|broke|prevented|stopped|led\\s+to)\\b",
+      "\\b(?:publisher|published|publishing)\\b[^\\n.]{0,120}\\bv2\\b[^\\n.]{0,120}\\b(?:consumer|subscriber|subscription)\\b[^\\n.]{0,120}\\bv1\\b",
+      "\\b(?:consumer|subscriber|subscription)\\b[^\\n.]{0,120}\\bv1\\b[^\\n.]{0,120}\\b(?:publisher|published|publishing)\\b[^\\n.]{0,120}\\bv2\\b"
+    ]
+  },
+  "INC-004": {
+    "rootCauseCode": "PUBLISHER_CLOCK_SKEW",
+    "rootCauseDescription": "After reboot, the publisher's unsynchronized system clock lagged trusted time by approximately 480 seconds. Newly sampled telemetry carried event timestamps older than the consumer's 120-second freshness limit, so the consumer received but discarded the messages.",
+    "requiredEvidenceIds": [
+      "L-033",
+      "L-035",
+      "M-038"
+    ],
+    "additionalSupportingEvidenceIds": [
+      "L-031",
+      "L-032",
+      "L-034",
+      "L-036",
+      "L-037",
+      "M-035",
+      "M-036",
+      "M-037",
+      "M-039",
+      "M-040"
+    ],
+    "alternativeCausesNotSupported": [
+      "DISK_EXHAUSTION",
+      "BROKER_OUTAGE",
+      "MQTT_AUTHENTICATION_FAILURE",
+      "MQTT_TOPIC_NAMESPACE_MISMATCH",
+      "SCHEMA_INCOMPATIBILITY",
+      "NETWORK_DELIVERY_DELAY",
+      "OLD_MESSAGE_REPLAY"
+    ],
+    "diagnosisPatterns": [
+      "\\b(?:clock\\s+(?:skew|drift|offset)|unsynchroni[sz]ed\\s+(?:publisher\\s+|device\\s+|edge\\s+)?clock)\\b",
+      "\\b(?:publisher|device|edge)\\b[^\\n.]{0,120}\\bclock\\b[^\\n.]{0,120}\\b(?:behind|slow|skewed|incorrect|unsynchroni[sz]ed)\\b",
+      "\\b(?:stale|old|expired)\\s+(?:event\\s+)?timestamps?\\b[^\\n.]{0,120}\\b(?:clock|skew|offset|time\\s+sync)\\b",
+      "\\b(?:clock|time\\s+sync)\\b[^\\n.]{0,120}\\b(?:freshness|age|stale|discarded|dropped|rejected)\\b"
+    ]
+  },
+  "INC-005": {
+    "rootCauseCode": "CROSS_DEVICE_DEDUPLICATION_KEY_COLLISION",
+    "rootCauseDescription": "A downstream deduplicator rollout changed the idempotency key from (device_id, sequence) to sequence alone. Distinct line-a and line-b devices used overlapping per-device sequence numbers, so after line-a messages were accepted the distinct line-b messages collided with existing deduplication keys and were incorrectly suppressed despite successful MQTT delivery and schema validation.",
+    "requiredEvidenceIds": [
+      "L-041",
+      "L-043",
+      "L-045",
+      "M-050"
+    ],
+    "additionalSupportingEvidenceIds": [
+      "L-040",
+      "L-042",
+      "L-044",
+      "L-046",
+      "L-047",
+      "L-048",
+      "M-043",
+      "M-046",
+      "M-047",
+      "M-049",
+      "M-051",
+      "M-053"
+    ],
+    "alternativeCausesNotSupported": [
+      "BROKER_DELIVERY_FAILURE",
+      "SCHEMA_VALIDATION_FAILURE",
+      "DOWNSTREAM_SINK_OUTAGE",
+      "DISK_EXHAUSTION",
+      "PUBLISHER_CLOCK_SKEW",
+      "GENUINE_MESSAGE_REPLAY"
+    ],
+    "diagnosisPatterns": [
+      "(?:dedup(?:lication)?|idempotency)[^\\n.]{0,120}(?:sequence|seq)[^\\n.]{0,120}(?:device|collision|cross)",
+      "(?:sequence|seq)[^\\n.]{0,100}(?:alone|only|without|omitt?ed)[^\\n.]{0,100}(?:device|dedup|idempotency)",
+      "(?:cross[- ]device|across devices)[^\\n.]{0,100}(?:dedup|duplicate|collision)",
+      "(?:duplicate|dedup|idempotency)[^\\n.]{0,100}(?:key|collision)[^\\n.]{0,100}(?:device|sequence|seq)"
+    ]
+  }
+}

@@ -1,0 +1,628 @@
+{
+  "version": 1,
+  "incidents": [
+    {
+      "id": "INC-001",
+      "metrics": [
+        {
+          "evidenceId": "M-001",
+          "timestamp": "2026-10-01T14:32:00Z",
+          "name": "disk_used_percent",
+          "value": 99,
+          "unit": "%"
+        },
+        {
+          "evidenceId": "M-002",
+          "timestamp": "2026-10-01T14:32:00Z",
+          "name": "cpu_utilization_percent",
+          "value": 43,
+          "unit": "%"
+        },
+        {
+          "evidenceId": "M-003",
+          "timestamp": "2026-10-01T14:32:00Z",
+          "name": "gpu_utilization_percent",
+          "value": 12,
+          "unit": "%"
+        },
+        {
+          "evidenceId": "M-004",
+          "timestamp": "2026-10-01T14:32:00Z",
+          "name": "pending_telemetry_messages",
+          "value": 1260,
+          "unit": "messages"
+        },
+        {
+          "evidenceId": "M-005",
+          "timestamp": "2026-10-01T14:32:00Z",
+          "name": "published_messages_per_minute",
+          "value": 0,
+          "unit": "messages/minute"
+        }
+      ],
+      "logs": [
+        {
+          "evidenceId": "L-001",
+          "timestamp": "2026-10-01T14:30:00Z",
+          "service": "telemetry-publisher",
+          "level": "INFO",
+          "message": "Published telemetry batch successfully."
+        },
+        {
+          "evidenceId": "L-002",
+          "timestamp": "2026-10-01T14:31:57Z",
+          "service": "telemetry-publisher",
+          "level": "ERROR",
+          "message": "Failed to persist outgoing message: ENOSPC (No space left on device)."
+        },
+        {
+          "evidenceId": "L-003",
+          "timestamp": "2026-10-01T14:32:00Z",
+          "service": "telemetry-publisher",
+          "level": "WARN",
+          "message": "Telemetry queue persistence failed. Publishing suspended."
+        },
+        {
+          "evidenceId": "L-004",
+          "timestamp": "2026-10-01T14:32:03Z",
+          "service": "mqtt-client",
+          "level": "INFO",
+          "message": "Broker connection established and healthy."
+        },
+        {
+          "evidenceId": "L-005",
+          "timestamp": "2026-10-01T14:32:12Z",
+          "service": "telemetry-publisher",
+          "level": "WARN",
+          "message": "Retry scheduled after persistence failure."
+        }
+      ]
+    },
+    {
+      "id": "INC-002",
+      "metrics": [
+        {
+          "evidenceId": "M-011",
+          "timestamp": "2026-10-18T09:17:00Z",
+          "name": "disk_used_percent",
+          "value": 93,
+          "unit": "percent"
+        },
+        {
+          "evidenceId": "M-012",
+          "timestamp": "2026-10-18T09:17:00Z",
+          "name": "queue_persist_success_percent",
+          "value": 100,
+          "unit": "percent"
+        },
+        {
+          "evidenceId": "M-013",
+          "timestamp": "2026-10-18T09:17:00Z",
+          "name": "mqtt_session_connected",
+          "value": 0,
+          "unit": "boolean"
+        },
+        {
+          "evidenceId": "M-014",
+          "timestamp": "2026-10-18T09:17:00Z",
+          "name": "published_messages_per_minute",
+          "value": 0,
+          "unit": "messages/minute"
+        },
+        {
+          "evidenceId": "M-015",
+          "timestamp": "2026-10-18T09:17:00Z",
+          "name": "pending_telemetry_messages",
+          "value": 985,
+          "unit": "messages"
+        },
+        {
+          "evidenceId": "M-016",
+          "timestamp": "2026-10-18T09:17:00Z",
+          "name": "mqtt_reconnect_attempts",
+          "value": 6,
+          "unit": "count"
+        }
+      ],
+      "logs": [
+        {
+          "evidenceId": "L-011",
+          "timestamp": "2026-10-18T09:15:30Z",
+          "service": "telemetry-publisher",
+          "level": "INFO",
+          "message": "Telemetry queue persisted outgoing messages successfully before the connection loss."
+        },
+        {
+          "evidenceId": "L-012",
+          "timestamp": "2026-10-18T09:16:55Z",
+          "service": "telemetry-publisher",
+          "level": "WARN",
+          "message": "MQTT session disconnected; reconnecting to telemetry broker over TLS."
+        },
+        {
+          "evidenceId": "L-013",
+          "timestamp": "2026-10-18T09:17:02Z",
+          "service": "telemetry-publisher",
+          "level": "ERROR",
+          "message": "mTLS handshake rejected by broker: client certificate expired; certificate notAfter=2026-10-18T09:00:00Z."
+        },
+        {
+          "evidenceId": "L-014",
+          "timestamp": "2026-10-18T09:17:06Z",
+          "service": "telemetry-publisher",
+          "level": "INFO",
+          "message": "TCP connection to broker port 8883 succeeded; broker network endpoint reachable."
+        },
+        {
+          "evidenceId": "L-015",
+          "timestamp": "2026-10-18T09:17:10Z",
+          "service": "telemetry-publisher",
+          "level": "ERROR",
+          "message": "TLS reconnect failed: remote alert certificate expired. MQTT authenticated session not established."
+        },
+        {
+          "evidenceId": "L-016",
+          "timestamp": "2026-10-18T09:17:17Z",
+          "service": "telemetry-publisher",
+          "level": "WARN",
+          "message": "Publishing suspended until MQTT session authenticates; messages remain in the local queue."
+        }
+      ]
+    },
+    {
+      "id": "INC-003",
+      "metrics": [
+        {
+          "evidenceId": "M-021",
+          "timestamp": "2026-10-20T11:43:00Z",
+          "name": "disk_used_percent",
+          "value": 93,
+          "unit": "percent"
+        },
+        {
+          "evidenceId": "M-022",
+          "timestamp": "2026-10-20T11:43:00Z",
+          "name": "mqtt_publisher_session_connected",
+          "value": 1,
+          "unit": "boolean"
+        },
+        {
+          "evidenceId": "M-023",
+          "timestamp": "2026-10-20T11:43:00Z",
+          "name": "broker_puback_success_percent",
+          "value": 100,
+          "unit": "percent"
+        },
+        {
+          "evidenceId": "M-024",
+          "timestamp": "2026-10-20T11:43:00Z",
+          "name": "broker_accepted_publishes_per_minute",
+          "value": 120,
+          "unit": "messages/minute"
+        },
+        {
+          "evidenceId": "M-025",
+          "timestamp": "2026-10-20T11:43:00Z",
+          "name": "downstream_delivered_messages_per_minute",
+          "value": 0,
+          "unit": "messages/minute"
+        },
+        {
+          "evidenceId": "M-026",
+          "timestamp": "2026-10-20T11:43:00Z",
+          "name": "queue_persist_success_percent",
+          "value": 100,
+          "unit": "percent"
+        },
+        {
+          "evidenceId": "M-027",
+          "timestamp": "2026-10-20T11:43:00Z",
+          "name": "mqtt_consumer_session_connected",
+          "value": 1,
+          "unit": "boolean"
+        }
+      ],
+      "logs": [
+        {
+          "evidenceId": "L-021",
+          "timestamp": "2026-10-20T11:39:40Z",
+          "service": "telemetry-consumer",
+          "level": "INFO",
+          "message": "SUBACK granted QoS 1 for factory/line-a/telemetry/v1/#. Telemetry consumption is normal."
+        },
+        {
+          "evidenceId": "L-022",
+          "timestamp": "2026-10-20T11:41:52Z",
+          "service": "telemetry-publisher",
+          "level": "INFO",
+          "message": "Deployment version 2.4.0 activated. Effective publish_topic_prefix=factory/line-a/telemetry/v2."
+        },
+        {
+          "evidenceId": "L-023",
+          "timestamp": "2026-10-20T11:42:06Z",
+          "service": "telemetry-publisher",
+          "level": "INFO",
+          "message": "QoS 1 PUBACK received from broker for topic factory/line-a/telemetry/v2/sensors/temperature."
+        },
+        {
+          "evidenceId": "L-024",
+          "timestamp": "2026-10-20T11:42:14Z",
+          "service": "telemetry-consumer",
+          "level": "INFO",
+          "message": "MQTT session healthy. Active subscription filter=factory/line-a/telemetry/v1/#. No subscription changes recorded."
+        },
+        {
+          "evidenceId": "L-025",
+          "timestamp": "2026-10-20T11:42:20Z",
+          "service": "host-monitor",
+          "level": "WARN",
+          "message": "Filesystem utilization reached 93%, exceeding the disk warning threshold."
+        },
+        {
+          "evidenceId": "L-026",
+          "timestamp": "2026-10-20T11:43:01Z",
+          "service": "telemetry-publisher",
+          "level": "INFO",
+          "message": "Local queue persistence successful. No storage write failures detected."
+        },
+        {
+          "evidenceId": "L-027",
+          "timestamp": "2026-10-20T11:43:12Z",
+          "service": "downstream-processor",
+          "level": "WARN",
+          "message": "No telemetry deliveries observed since 11:42 UTC. Consumer connection remains established."
+        }
+      ]
+    },
+    {
+      "id": "INC-004",
+      "metrics": [
+        {
+          "evidenceId": "M-031",
+          "timestamp": "2026-10-21T12:14:30Z",
+          "name": "disk_used_percent",
+          "value": 93,
+          "unit": "percent"
+        },
+        {
+          "evidenceId": "M-032",
+          "timestamp": "2026-10-21T12:14:30Z",
+          "name": "mqtt_publisher_session_connected",
+          "value": 1,
+          "unit": "boolean"
+        },
+        {
+          "evidenceId": "M-033",
+          "timestamp": "2026-10-21T12:14:30Z",
+          "name": "mqtt_consumer_session_connected",
+          "value": 1,
+          "unit": "boolean"
+        },
+        {
+          "evidenceId": "M-034",
+          "timestamp": "2026-10-21T12:14:30Z",
+          "name": "broker_accepted_publishes_per_minute",
+          "value": 120,
+          "unit": "messages/minute"
+        },
+        {
+          "evidenceId": "M-035",
+          "timestamp": "2026-10-21T12:14:30Z",
+          "name": "consumer_received_messages_per_minute",
+          "value": 120,
+          "unit": "messages/minute"
+        },
+        {
+          "evidenceId": "M-036",
+          "timestamp": "2026-10-21T12:14:30Z",
+          "name": "downstream_accepted_messages_per_minute",
+          "value": 0,
+          "unit": "messages/minute"
+        },
+        {
+          "evidenceId": "M-037",
+          "timestamp": "2026-10-21T12:14:30Z",
+          "name": "consumer_event_age_drops_per_minute",
+          "value": 120,
+          "unit": "messages/minute"
+        },
+        {
+          "evidenceId": "M-038",
+          "timestamp": "2026-10-21T12:14:30Z",
+          "name": "publisher_clock_offset_seconds",
+          "value": -480,
+          "unit": "seconds"
+        },
+        {
+          "evidenceId": "M-039",
+          "timestamp": "2026-10-21T12:14:30Z",
+          "name": "publish_to_consume_latency_p95_ms",
+          "value": 240,
+          "unit": "milliseconds"
+        },
+        {
+          "evidenceId": "M-040",
+          "timestamp": "2026-10-21T12:14:30Z",
+          "name": "publisher_pending_queue_messages",
+          "value": 0,
+          "unit": "messages"
+        },
+        {
+          "evidenceId": "M-041",
+          "timestamp": "2026-10-21T12:14:30Z",
+          "name": "queue_persist_success_percent",
+          "value": 100,
+          "unit": "percent"
+        }
+      ],
+      "logs": [
+        {
+          "evidenceId": "L-031",
+          "timestamp": "2026-10-21T12:13:42Z",
+          "service": "fleet-monitor",
+          "level": "WARN",
+          "message": "Edge publisher reboot completed. System wall clock restored from local RTC; NTP synchronization still pending."
+        },
+        {
+          "evidenceId": "L-032",
+          "timestamp": "2026-10-21T12:13:58Z",
+          "service": "telemetry-consumer",
+          "level": "INFO",
+          "message": "MQTT subscription active: factory/line-a/telemetry/v2/#. Consumer schema v2 active; max_event_age_seconds=120."
+        },
+        {
+          "evidenceId": "L-033",
+          "timestamp": "2026-10-21T12:14:00Z",
+          "service": "telemetry-publisher",
+          "level": "INFO",
+          "message": "New sample seq=7312 sent on factory/line-a/telemetry/v2/sensors/temperature; event_time=2026-10-21T12:06:00Z; schema=v2."
+        },
+        {
+          "evidenceId": "L-034",
+          "timestamp": "2026-10-21T12:14:01Z",
+          "service": "mqtt-client",
+          "level": "INFO",
+          "message": "QoS 1 PUBACK received for telemetry sample seq=7312; broker accepted publish."
+        },
+        {
+          "evidenceId": "L-035",
+          "timestamp": "2026-10-21T12:14:02Z",
+          "service": "telemetry-consumer",
+          "level": "WARN",
+          "message": "Sample seq=7312 received at 2026-10-21T12:14:02Z. Schema validation passed. event_age_seconds=482; max_event_age_seconds=120; disposition=discard."
+        },
+        {
+          "evidenceId": "L-036",
+          "timestamp": "2026-10-21T12:14:05Z",
+          "service": "telemetry-publisher",
+          "level": "INFO",
+          "message": "Sampling live sensor values; no offline replay batches; pending publish queue length=0."
+        },
+        {
+          "evidenceId": "L-037",
+          "timestamp": "2026-10-21T12:14:07Z",
+          "service": "fleet-monitor",
+          "level": "WARN",
+          "message": "Publisher wall-clock offset relative to collector reference is -480 seconds. No synchronized NTP peer since reboot."
+        },
+        {
+          "evidenceId": "L-038",
+          "timestamp": "2026-10-21T12:14:11Z",
+          "service": "host-monitor",
+          "level": "WARN",
+          "message": "Filesystem utilization is 93%, above the disk warning threshold."
+        },
+        {
+          "evidenceId": "L-039",
+          "timestamp": "2026-10-21T12:14:20Z",
+          "service": "downstream-processor",
+          "level": "WARN",
+          "message": "No valid telemetry records accepted since 12:14 UTC, although MQTT consumer deliveries continue."
+        }
+      ]
+    },
+    {
+      "id": "INC-005",
+      "metrics": [
+        {
+          "evidenceId": "M-042",
+          "timestamp": "2026-10-22T02:21:00Z",
+          "name": "broker_accepted_publishes_per_minute",
+          "value": 240,
+          "unit": "messages/minute"
+        },
+        {
+          "evidenceId": "M-043",
+          "timestamp": "2026-10-22T02:21:00Z",
+          "name": "consumer_received_messages_per_minute",
+          "value": 240,
+          "unit": "messages/minute"
+        },
+        {
+          "evidenceId": "M-044",
+          "timestamp": "2026-10-22T02:21:00Z",
+          "name": "consumer_schema_validation_success_percent",
+          "value": 100,
+          "unit": "percent"
+        },
+        {
+          "evidenceId": "M-045",
+          "timestamp": "2026-10-22T02:21:00Z",
+          "name": "downstream_accepted_line_a_per_minute",
+          "value": 120,
+          "unit": "messages/minute"
+        },
+        {
+          "evidenceId": "M-046",
+          "timestamp": "2026-10-22T02:21:00Z",
+          "name": "downstream_accepted_line_b_per_minute",
+          "value": 0,
+          "unit": "messages/minute"
+        },
+        {
+          "evidenceId": "M-047",
+          "timestamp": "2026-10-22T02:21:00Z",
+          "name": "dedupe_suppressed_line_b_per_minute",
+          "value": 120,
+          "unit": "messages/minute"
+        },
+        {
+          "evidenceId": "M-048",
+          "timestamp": "2026-10-22T02:21:00Z",
+          "name": "dedupe_suppressed_line_a_per_minute",
+          "value": 0,
+          "unit": "messages/minute"
+        },
+        {
+          "evidenceId": "M-049",
+          "timestamp": "2026-10-22T02:21:00Z",
+          "name": "distinct_device_sequence_pairs_per_minute",
+          "value": 240,
+          "unit": "unique pairs/minute"
+        },
+        {
+          "evidenceId": "M-050",
+          "timestamp": "2026-10-22T02:21:00Z",
+          "name": "distinct_dedupe_keys_per_minute",
+          "value": 120,
+          "unit": "unique keys/minute"
+        },
+        {
+          "evidenceId": "M-051",
+          "timestamp": "2026-10-22T02:21:00Z",
+          "name": "publisher_replayed_messages_per_minute",
+          "value": 0,
+          "unit": "messages/minute"
+        },
+        {
+          "evidenceId": "M-052",
+          "timestamp": "2026-10-22T02:21:00Z",
+          "name": "mqtt_session_connected",
+          "value": 1,
+          "unit": "boolean"
+        },
+        {
+          "evidenceId": "M-053",
+          "timestamp": "2026-10-22T02:21:00Z",
+          "name": "downstream_sink_write_errors_per_minute",
+          "value": 0,
+          "unit": "errors/minute"
+        },
+        {
+          "evidenceId": "M-054",
+          "timestamp": "2026-10-22T02:21:00Z",
+          "name": "disk_used_percent",
+          "value": 93,
+          "unit": "percent"
+        },
+        {
+          "evidenceId": "M-055",
+          "timestamp": "2026-10-22T02:21:00Z",
+          "name": "publisher_clock_offset_seconds",
+          "value": -0.2,
+          "unit": "seconds"
+        },
+        {
+          "evidenceId": "M-056",
+          "timestamp": "2026-10-22T02:21:00Z",
+          "name": "broker_puback_success_percent",
+          "value": 100,
+          "unit": "percent"
+        }
+      ],
+      "logs": [
+        {
+          "evidenceId": "L-040",
+          "timestamp": "2026-10-22T02:19:48Z",
+          "service": "dedup-service",
+          "level": "INFO",
+          "message": "Before rollout, effective idempotency key fields=device_id,sequence; retention=86400 seconds."
+        },
+        {
+          "evidenceId": "L-041",
+          "timestamp": "2026-10-22T02:19:56Z",
+          "service": "dedup-service",
+          "level": "INFO",
+          "message": "Rollout 3.2.0 activated; effective idempotency key fields=sequence; retention=86400 seconds."
+        },
+        {
+          "evidenceId": "L-042",
+          "timestamp": "2026-10-22T02:20:01Z",
+          "service": "telemetry-publisher",
+          "level": "INFO",
+          "message": "Live sample sent: device_id=line-a-02, sequence=6142, payload_hash=72cc, replay=false."
+        },
+        {
+          "evidenceId": "L-043",
+          "timestamp": "2026-10-22T02:20:02Z",
+          "service": "telemetry-consumer",
+          "level": "INFO",
+          "message": "Received device_id=line-a-02, sequence=6142, payload_hash=72cc; schema=valid; dedupe_key=6142; disposition=accepted."
+        },
+        {
+          "evidenceId": "L-044",
+          "timestamp": "2026-10-22T02:20:03Z",
+          "service": "telemetry-publisher",
+          "level": "INFO",
+          "message": "Live sample sent: device_id=line-b-07, sequence=6142, payload_hash=bf19, replay=false."
+        },
+        {
+          "evidenceId": "L-045",
+          "timestamp": "2026-10-22T02:20:04Z",
+          "service": "telemetry-consumer",
+          "level": "WARN",
+          "message": "Received device_id=line-b-07, sequence=6142, payload_hash=bf19; schema=valid; dedupe_key=6142; disposition=suppressed_duplicate."
+        },
+        {
+          "evidenceId": "L-046",
+          "timestamp": "2026-10-22T02:20:10Z",
+          "service": "telemetry-consumer",
+          "level": "INFO",
+          "message": "Received device_id=line-a-02, sequence=6160, payload_hash=1fe7; schema=valid; dedupe_key=6160; disposition=accepted."
+        },
+        {
+          "evidenceId": "L-047",
+          "timestamp": "2026-10-22T02:20:11Z",
+          "service": "telemetry-consumer",
+          "level": "WARN",
+          "message": "Received device_id=line-b-07, sequence=6160, payload_hash=820d; schema=valid; dedupe_key=6160; disposition=suppressed_duplicate."
+        },
+        {
+          "evidenceId": "L-048",
+          "timestamp": "2026-10-22T02:20:15Z",
+          "service": "downstream-processor",
+          "level": "WARN",
+          "message": "Line-b telemetry freshness alert: no newly accepted records after 02:20 UTC; line-a is updating."
+        },
+        {
+          "evidenceId": "L-049",
+          "timestamp": "2026-10-22T02:20:18Z",
+          "service": "mqtt-client",
+          "level": "INFO",
+          "message": "Publisher and consumer sessions healthy; broker PUBACK success remains 100%."
+        },
+        {
+          "evidenceId": "L-050",
+          "timestamp": "2026-10-22T02:20:21Z",
+          "service": "host-monitor",
+          "level": "WARN",
+          "message": "Filesystem utilization 93%, above warning threshold; write tests successful."
+        },
+        {
+          "evidenceId": "L-051",
+          "timestamp": "2026-10-22T02:20:23Z",
+          "service": "fleet-monitor",
+          "level": "INFO",
+          "message": "Device clocks synchronized; observed publisher offsets within 0.2 seconds."
+        },
+        {
+          "evidenceId": "L-052",
+          "timestamp": "2026-10-22T02:20:27Z",
+          "service": "telemetry-consumer",
+          "level": "INFO",
+          "message": "Delivery count matches broker accepted count; no replay batches; no sink write errors."
+        }
+      ]
+    }
+  ]
+}

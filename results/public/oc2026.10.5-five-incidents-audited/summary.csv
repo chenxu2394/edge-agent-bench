@@ -1,0 +1,11 @@
+incident,agent,trials,gpt6_root_correct,full_required_evidence,tool_calls,tool_errors,missing_incident_id_args,mean_duration_s
+INC-001,bench-cloud,4,4,4,8,0,0,10.159
+INC-001,bench-qwen,4,4,4,8,0,0,39.203
+INC-002,bench-cloud,4,4,4,8,0,0,11.189
+INC-002,bench-qwen,4,4,4,8,0,0,48.928
+INC-003,bench-cloud,4,4,4,8,0,0,13.307
+INC-003,bench-qwen,4,4,4,8,0,0,41.831
+INC-004,bench-cloud,4,4,4,8,0,0,23.301
+INC-004,bench-qwen,4,4,1,8,0,0,43.551
+INC-005,bench-cloud,4,4,0,8,0,0,11.502
+INC-005,bench-qwen,4,4,1,8,0,0,54.442
